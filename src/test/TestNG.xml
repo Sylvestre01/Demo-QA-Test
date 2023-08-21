@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Demo QA E2E Suite" parallel="false">
+    <listeners>
+        <listener
+                class-name="Utilities.listeners.TestListeners">
+        </listener>
+        <listener
+                class-name="Utilities.listeners.AnnotationTransformer">
+        </listener>
+    </listeners>
+    <test name="Demo QA Test">
+        <classes>
+            <class name="TestCase.DemoQATest"/>
+        </classes>
+    </test>
+</suite>
