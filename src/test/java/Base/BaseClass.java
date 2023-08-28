@@ -3,6 +3,7 @@ package Base;
 import Logger.Log;
 import Utilities.ReadConfig;
 import Utilities.TakeScreenshot;
+import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -28,14 +29,14 @@ public class BaseClass {
     public static void startDriver(){
         ReadConfig readConfig = new ReadConfig();
         if (readConfig.getbrowser().equals("chrome")) {
-            System.setProperty("webdriver.chrome.driver", readConfig.getDriverPath());
+            WebDriverManager.chromedriver().setup();
             driver = new ChromeDriver();
             Log.info("chrome browser launched");
         } else if (readConfig.getbrowser().equals("firefox")) {
-            System.setProperty("webdriver.gecko.driver", readConfig.getDriverPath());
+            WebDriverManager.firefoxdriver().setup();
             driver = new FirefoxDriver();
         } else if (readConfig.getbrowser().equals("edge")) {
-            System.setProperty("webdriver.edge.driver", readConfig.getDriverPath());
+            WebDriverManager.edgedriver().setup();
             driver = new EdgeDriver();
         }
 
